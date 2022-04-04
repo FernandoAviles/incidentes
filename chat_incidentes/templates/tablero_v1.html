@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+    <title>{% block title %}Incidente Hoy{% endblock %}</title>
+{% block content %}
+
+{%  if incidentes_dia %}
+<table>
+    <thead>
+        <tr>
+            <th># Inc</th>
+            <th>Aplicativo</th>
+            <th>Título</th>
+            <th>Reportado por</th>
+            <!--th>Descripción</th-->
+            <th>Incio</th>
+            <th>Fin</th>
+            <th>Escalamiento</th>
+            <th>Critico</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for incidente,color in incidentes_dia %}
+        <tr onclick='window.location.href ="/incidente/{{incidente.num_inc}}"' bgcolor="{{color}}">
+            <td>{{incidente.num_inc}}</td>
+            <td>{{incidente.app_inc|upper}}</td>
+            <td>{{incidente.titulo_inc.upper}}</td>
+            <td>{{incidente.rep_inc.upper}}</td>
+            <!--td>{{incidente.desc_inc}}</td-->
+            <td>{{incidente.horainicio.time|time:'H:i'}}</td>
+            <td>{{incidente.horafin.time|time:'H:i'}}</td>
+            <td>{{incidente.esc_inc.upper}}</td>
+            <td colspan="2">{% if incidente.critico %}
+                    <input type="checkbox" checked disabled>
+                {% else %}
+                    <input type="checkbox" disabled>
+                {% endif %}
+            </td>
+        </tr>
+        
+        {% endfor %}      
+        
+    </tbody>
+</table>
+{% else %}
+<div>
+    <h2>No hay Incidentes que mostrar</h2>
+</div>
+{% endif %}
+{% endblock %}
+

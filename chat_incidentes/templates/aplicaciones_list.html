@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+    <title>{% block title %}Aplicaciones{% endblock %}</title>
+{% block content %}
+
+{%  if aplicacion_list %}
+<table>
+    <thead>
+        <tr>
+            <th>Aplicacion</th>
+            <th>Descripcion</th>
+            <th>Celula</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for aplicacion in aplicacion_list %}
+        <tr onclick='window.location.href ="/eliminapp/{{aplicacion.id}}"'>
+        <!--tr onclick='window.location.href ="/incidente/{{incidente.num_inc}}"' bgcolor="{{color}}"-->
+            <td>{{aplicacion.nom_app}}</td>
+            <td>{{aplicacion.desc_app|upper}}</td>
+            <td>{{aplicacion.celula.upper}}</td>
+        </tr>
+        
+        {% endfor %}      
+        
+    </tbody>
+</table>
+{% else %}
+<div>
+    <h2>No hay Aplicativos que mostrar</h2>
+</div>
+{% endif %}
+{% endblock %}
+

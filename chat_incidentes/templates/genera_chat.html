@@ -1,0 +1,13 @@
+{% extends "home.html" %}
+    <title>{% block title %}Registrar Inc{% endblock %}</title>
+{% block content %}
+<body>
+    <form action="" method="post">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Guardar">       
+    </form>
+    
+</body>
+{% endblock %}

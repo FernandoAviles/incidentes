@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+    <title>{% block title %}-Incidente{% endblock %}</title>
+{% block content %}
+<div>
+    {% for detalle in inc_detallado%}
+    <h1>{{detalle.num_inc}} - {{detalle.app_inc}} | {{detalle.titulo_inc}}</h1>
+    <h2>Reportado Por: {{detalle.rep_inc}}</h2>
+    <p>Descripción: {{detalle.desc_inc}}</p>
+    <p>Inicio: {{detalle.horainicio.time}}</p>
+    <p>Fin: {{detalle.horafin}}</p>
+    <p>Escalado: {{detalle.esc_inc}}</p>
+    <p>Critico: {{detalle.critico}}</p>
+    
+    {% endfor %}
+</div>
+
+<div>
+    {% if inc_saved %}
+    <p>
+    <b>NÚMERO INCIDENTE: {{inc_saved.num_inc}}</b><br>
+    <b>APERTURA INCIDENTE: {{inc_saved.app_inc}} | {{inc_saved.titulo_inc}}</b><br>
+    <b>REPORTADO POR: </b>{{inc_saved.rep_inc}} <br>
+    <b>DESCRIPCIÓN: </b>{{inc_saved.desc_inc}} <br>
+    <b>HORA INICIO: </b>{{inc_saved.horainicio.time}} <br>
+    <b>ESCALADO: </b>{{inc_saved.esc_inc}}
+    </p>
+
+    <a class="btn btn-success" href="https://api.whatsapp.com/send/?phone&text=*NÚMERO INCIDENTE: {{inc_saved.num_inc}}*%0A*APERTURA INCIDENTE: {{inc_saved.app_inc}} | {{inc_saved.titulo_inc}}*%0AREPORTADO POR: {{inc_saved.rep_inc}}%0ADESCRIPCIÓN: {{inc_saved.desc_inc}}%0AHORA INICIO: {{inc_saved.horainicio.time}}%0AESCALADO: {{inc_saved.esc_inc}}" target="_blank">Generar Mensaje</a>
+    <a class="btn btn-primary" href="#">Copiar</a>
+    <a class="btn btn-danger" href="/tablero/">Completado</a>
+
+    {% endif %}
+
+</div>
+{% endblock %}
+

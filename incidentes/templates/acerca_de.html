@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+    <title>{% block title %}Incidentes{% endblock %}</title>
+{% block content %}
+<body>
+    <!--Inclusión de Menu-->
+    
+    <div>
+        <h4>Objetivos de Rover</h4>
+        <p>Nombre presona </p> <h2>{{nombre_p}}&nbsp; {{apellido_p}}</h2>
+    </div>
+    <div>
+        <h1 style="color: red;">Lista de temas</h1>
+        
+        <ul>
+            {% if lista_temas %}    
+                {% for tema in lista_temas %}
+                <li>{{tema}}</li>
+                {% endfor %}
+            {% else %}
+                <h3 style="color: darkgreen;">No hay que mostrar</h3>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,4 @@
+PROYECTO INCIDENTES
+1. ejecutar  ===>python -m django startproject incidentes
+2. Se crea el aplicativo ===>python manage.py startapp chat_incidentes
+2. Crear modelo y hacer migraciones ===>python manage.py makemigrations, sqlmigrate[para numero de version] o migrate

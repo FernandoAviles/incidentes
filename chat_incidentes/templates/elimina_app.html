@@ -1,0 +1,12 @@
+{% extends "home.html" %}
+    <title>{% block title %}-Eliminar App{% endblock %}</title>
+{% block content %}
+<body>
+    <form action="" method="POST">{% csrf_token %}
+        <h3>¿Desea eliminar aplicacion {{ object.nom_app }} ?</h3>
+        <button type="submit" class="btn btn-danger"> S&iacute;, Elimniar</button>
+        <a href="{% url 'listapp' %}">No, Cancela</a>
+    </form>
+    
+</body>
+{% endblock %}

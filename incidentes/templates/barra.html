@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Menú</title>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Rover</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/tablero/' %}active{% endif %}" href="/tablero/">Tablero
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/registrar_inc/' %}active{% endif %}" href="/registrar_inc/">Incidente</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/aplicaciones/' %}active{% endif %}" href="/aplicaciones/">Aplicaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/despedida/' %}active{% endif %}" href="/despedida/">Reporte Semanal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/saludo/' %}active{% endif %}" href="/acerca/">Acerca de</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+    <!--ul id="barra">
+        <li><a href="/tablero/">Tablero</a></li>
+        <li><a href="/registrar_inc/">Incidentes</a></li>
+        <li><a href="/aplicaciones/">Aplicaciones</a></li>
+        <li><a href="/despedida/">Reportes</a></li>
+        <li><a href="/saludo/">Acerca de</a></li>
+    </ul-->
+    
+</body>
+</html>
